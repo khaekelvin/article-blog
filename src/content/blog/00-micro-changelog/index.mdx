@@ -1,6 +1,6 @@
 ---
-title: "Everything new in Astro Micro"
-description: "Features, enhancements, and changes."
+title: "Semantics Tags in HTML"
+description: "Semantic HTML emphasizes on providing structure and context to a website."
 date: "2024-05-09"
 ---
 
@@ -8,21 +8,166 @@ import Callout from "@/components/Callout.astro";
 
 ---
 
-## Pagefind search 🔎
+<Callout type="error">**HTML** Semantics</Callout>
+## What are HTML Semantics?
 
-[Pagefind](https://pagefind.app) is a search library for static websites. Micro uses [Sergey Shishkin's](https://github.com/shishkin) [astro-pagefind](https://github.com/shishkin/astro-pagefind) integration. This integration simplifies development and does not require any changes to the default build script.
+HTML semantics refer to the practice of using HTML tags in a way that conveys meaningful information about the content they enclose. Semantic HTML emphasizes on providing structure and context to a website. By using the right semantic tags, developers can better describe the making it easy for both humans and machines to understand the content's significance.
 
-Press <kbd>/</kbd> or <kbd>CTRL</kbd> + <kbd>K</kbd> to open the search dialog. For Mac users, <kbd>⌘</kbd> + <kbd>K</kbd> can also be used. To dismiss the search dialog, press <kbd>Esc</kbd> or click on an area outside the component.
+Examples of non-semantic elements: <kbd>< div ></kbd> and <kbd>< span ></kbd> - Tells nothing about its content.
 
-### Build and develop
+Examples of semantic elements: <kbd>< form ></kbd>, <kbd>< table ></kbd>, and <kbd>< article ></kbd>- Clearly defines its content.
 
-<Callout type="error">
-  The site **must** be built at least once so Pagefind can index the content.
-</Callout>
+### Why do we use them?
 
-```bash
-# Pagefind must index the site to function
-npm run build
+#### • Code Readability:
+
+Semantic HTML enhances the readability and maintainability of code. The use of semantic tags in our code allows our code to make more sense and as our project grows, it helps us orient ourselves.
+
+#### • Makes our site more accessible:
+
+Semantic HTML tags have imbedded accessibility constructs that enable users with disabilities to make use assistive technologies such as screen readers and screen magnifiers.
+
+#### • Content Organization:
+
+Semantic HTML helps in organizing the content of the site in a meaningful order with the use of appropriate tags. Developers can structure the content hierarchically, making it easier for users to grasp information
+
+### Examples and when they are used
+
+#### • Article:
+
+The element is used to explain a self-contained piece of content, like a blog post or news article.
+
+```javascript
+<body>
+  <article>
+    <h1>Article Title</h1>
+    <p>This is the content of the article.</p>
+    <p>It can have multiple paragraphs and other elements.</p>
+  </article>
+</body>
+```
+
+#### • Header and Nav:
+
+The element is used to define the header section of a webpage, typically containing the site's title, logo, and main navigation and the element represents a navigation menu and contains links to different sections or pages of a website.
+
+```javascript
+<body>
+  <header>
+    <h1>Website Title</h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</body>
+```
+
+#### • Aside:
+
+The element is used for content that is not related to the main content but provides some information.
+
+```javascript
+<body>
+  <aside>
+    <h2>Related Articles</h2>
+    <ul>
+      <li>
+        <a href="/article1">Article 1</a>
+      </li>
+      <li>
+        <a href="/article1">Article 2</a>
+      </li>
+    </ul>
+  </aside>
+</body>
+```
+
+#### • Details and Summary:
+
+This element allows us to create accordions. It's particularly useful for displaying a list of items, conserving screen space and providing a neat way to organize and present information.
+
+```javascript
+<body>
+  <details>
+    <summary>Click to expand</summary>
+    <p>Hidden content revealed when the details are expanded.</p>
+  </details>
+</body>
+```
+
+#### • Article:
+
+The element is used to explain a self-contained piece of content, like a blog post or news article.
+
+```javascript
+<body>
+  <article>
+    <h1>Article Title</h1>
+    <p>This is the content of the article.</p>
+    <p>It can have multiple paragraphs and other elements.</p>
+  </article>
+</body>
+```
+
+#### • Footer:
+
+The element represents the footer section of a webpage, typically containing contact information, copyright notices, and secondary navigation.
+
+```javascript
+<footer>
+  <p>Contact us at contact@example.com</p>
+  <nav>
+    <ul>
+      <li>
+        <a href="/privacy">privacy Policy</a>
+      </li>
+      <li>
+        <a href="/terms">Terms of Service</a>
+      </li>
+    </ul>
+  </nav>
+</footer>
+```
+
+#### • Main:
+
+The element is used to define the main content area of a webpage, excluding headers, footers, and sidebars. There can only be one main element on the page.
+
+```javascript
+<body>
+  <main>
+    <h1>Main Content</h1>
+    <p>This is the main content of the webpage.</p>
+  </main>
+</body>
+```
+
+### Sample Layout:
+
+```javascript
+<html>
+  <head>
+    <title>Semantic HTML layout</title>
+  </head>
+
+  <body>
+    <header></header>
+
+    <main></main>
+
+    <footer></footer>
+  </body>
+</html>
 ```
 
 When developing you can continue to use `npm run dev` and Pagefind will use the index from the last available build.
