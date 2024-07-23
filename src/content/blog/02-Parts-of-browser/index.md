@@ -1,6 +1,6 @@
 ---
 title: "Parts of a Browser"
-description: "How to add posts to the blog."
+description: "What are the Parts of a Browser?"
 date: "2023-08-23"
 ---
 
